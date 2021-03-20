@@ -1,5 +1,5 @@
-defmodule ChallengeContai.Operations.Create do
-  alias ChallengeContai.{Repo, Operations}
+defmodule Contaichallenge.Operations.Create do
+  alias Contaichallenge.{Repo, Operations}
 
   def call(params) do
     params

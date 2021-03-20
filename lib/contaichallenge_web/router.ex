@@ -7,6 +7,24 @@ defmodule ContaichallengeWeb.Router do
 
   scope "/api", ContaichallengeWeb do
     pipe_through :api
+
+    post "/operations/:operation/:first_factor/:second_factor", OperationsController, :create
+    get "/operations", OperationsController, :getall
+  end
+
+  def swagger_info do
+    %{
+      info: %{
+        version: "1.0",
+        title: "Contaí Challenge"
+      }
+    }
+  end
+
+  scope "/api/swagger" do
+    forward "/", PhoenixSwagger.Plug.SwaggerUI,
+      otp_app: :contaichallenge,
+      swagger_file: "swagger.json"
   end
 
   # Enables LiveDashboard only for development
