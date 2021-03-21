@@ -23,6 +23,19 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :contaichallenge, :phoenix_swagger,
+  swagger_files: %{
+    "priv/static/swagger.json" => [
+      router: ContaichallengeWeb.Router,     # phoenix routes will be converted to swagger paths
+      endpoint: ContaichallengeWeb.Endpoint  # (optional) endpoint config used to set host, port and https schemes.
+    ]
+  }
+
+config :phoenix_swagger, json_library: Jason
+
+config :contaichallenge, Contaichallenge.Repo,
+  migration_primary_key: [type: :binary_id]
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
