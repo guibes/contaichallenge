@@ -4,7 +4,13 @@ defmodule ContaichallengeWeb.OperationsView do
   alias Contaichallenge.Operations
   alias ContaichallengeWeb.OperationsView
 
+  @moduledoc """
+  Module to generate the views of the Operations in the API.
+  """
 
+  @doc """
+  Function to render the create response.
+  """
 
   def render("create.json", %{
     operation: %Operations{
@@ -28,6 +34,10 @@ defmodule ContaichallengeWeb.OperationsView do
 
 end
 
+@doc """
+  Function to render the get one response.
+  """
+
 def render("get.json",
 %{
   operations: %Operations{
@@ -50,7 +60,9 @@ operation: %{
 }
 
 end
-
+@doc """
+  Function to render the get all response.
+  """
 def render("get_all.json", %{operations: operations}), do: %{operations: render_many(operations, OperationsView, "get.json"), operationsCount: length(operations), message: "Operations listed"}
 
 end

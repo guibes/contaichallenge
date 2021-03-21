@@ -6,6 +6,14 @@ defmodule Contaichallenge.Operations do
   @primary_key {:id, :binary_id, autogenerate: true}
   @required_params [:first_factor, :second_factor, :operation, :result]
 
+  @moduledoc """
+  Operations schema and changeset, this is used to insert data in database correctly.
+  """
+
+  @doc """
+  Schema for operations in database
+  """
+
   schema "operations" do
     field :first_factor, :integer
     field :second_factor, :integer
@@ -15,12 +23,18 @@ defmodule Contaichallenge.Operations do
     timestamps()
   end
 
+  @doc """
+  Changeset to validate the params and calculate the result.
+  """
+
   def changeset(params) do
     %__MODULE__{}
     |> cast(params, @required_params)
     |> generate_result()
     |> validate_required(@required_params)
   end
+
+  #Function to validate operation param, calculate the result and put into the changeset.
 
   defp generate_result(changeset) do
     first_factor = get_field(changeset, :first_factor)

@@ -6,6 +6,13 @@ defmodule ContaichallengeWeb.OperationsController do
 
   action_fallback ContaichallengeWeb.FallbackController
 
+  @moduledoc """
+  Controller for create and get all operations, this module contains the Swagger definitions too.
+  """
+
+  @doc """
+  Create a operation in database and return to connection the result
+  """
   def create(conn, params) do
     with {:ok, %Operations{} = operation} <- Contaichallenge.create_operation(params) do
       conn
@@ -15,7 +22,9 @@ defmodule ContaichallengeWeb.OperationsController do
   end
 
 
-
+  @doc """
+  List all operations in database and return to connection the result
+  """
   def getall(conn, params) do
     with {:ok, operations} <- Contaichallenge.get_operations(params) do
       conn
