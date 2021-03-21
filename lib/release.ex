@@ -1,5 +1,5 @@
 defmodule Contaichallenge.Release do
-  @app :my_app
+  @app :contaichallenge
 
   def migrate do
     load_app()
