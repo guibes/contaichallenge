@@ -45,7 +45,7 @@ defmodule Contaichallenge.Operations do
     "sum"  -> put_change(changeset, :result, first_factor+second_factor)
     "sub" -> put_change(changeset, :result, first_factor-second_factor)
     "mul" -> put_change(changeset, :result, first_factor*second_factor)
-    "div" -> put_change(changeset, :result, first_factor/second_factor)
+    "div" -> put_change(changeset, :result, trunc(first_factor/second_factor))
     _ -> add_error(changeset, :operation, "invalid operation")
     end
   end

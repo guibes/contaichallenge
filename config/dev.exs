@@ -1,7 +1,6 @@
 use Mix.Config
 
 database_url = System.get_env("DATABASE_URL")
-
 # Configure your database
 config :contaichallenge, Contaichallenge.Repo,
   url: database_url,
