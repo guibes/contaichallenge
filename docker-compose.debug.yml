@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  contaichallenge:
+    image: contaichallenge
+    build:
+      context: .
+      dockerfile: ./Dockerfile
