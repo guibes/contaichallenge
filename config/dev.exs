@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :contaichallenge, Contaichallenge.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "geovaneguibes",
+  password: "01A02b03cd!!",
   database: "contaichallenge_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
