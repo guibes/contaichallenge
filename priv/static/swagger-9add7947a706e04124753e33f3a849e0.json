@@ -1,0 +1,188 @@
+{
+  "definitions": {
+    "Operation": {
+      "description": "A operation in the database",
+      "example": {
+        "message": "Operation created",
+        "operation": {
+          "first_factor": 1,
+          "id": "99674d5e-5cdf-456c-9fb9-c4a2e6a2c0e8",
+          "operation": "sum",
+          "result": 3,
+          "second_factor": 2
+        }
+      },
+      "properties": {
+        "first_factor": {
+          "description": "First factor to operate",
+          "type": "integer"
+        },
+        "id": {
+          "description": "ID of the operation",
+          "type": "string"
+        },
+        "message": {
+          "description": "A message of response",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Operations type: sum, sub, mul, div",
+          "type": "string"
+        },
+        "result": {
+          "description": "Result of the operation",
+          "type": "integer"
+        },
+        "second_factor": {
+          "description": "Second factor to operate",
+          "type": "integer"
+        }
+      },
+      "title": "Operation",
+      "type": "object"
+    },
+    "Operations": {
+      "description": "A operation in the database",
+      "example": {
+        "message": "Operations listed",
+        "operations": [
+          {
+            "first_factor": 1,
+            "id": "99674d5e-5cdf-456c-9fb9-c4a2e6a2c0e8",
+            "operation": "sum",
+            "result": 3,
+            "second_factor": 2
+          },
+          {
+            "first_factor": 50,
+            "id": "af06c291-a2b5-404a-a5d0-efce2d04313c",
+            "operation": "mul",
+            "result": 1000,
+            "second_factor": 20
+          }
+        ],
+        "operationsCount": 2
+      },
+      "properties": {
+        "first_factor": {
+          "description": "First factor to operate",
+          "type": "integer"
+        },
+        "id": {
+          "description": "ID of the operation",
+          "type": "string"
+        },
+        "message": {
+          "description": "A message of response",
+          "type": "string"
+        },
+        "operation": {
+          "description": "Operations type: sum, sub, mul, div",
+          "type": "string"
+        },
+        "operationsCount": {
+          "description": "Number of operations listed",
+          "type": "integer"
+        },
+        "result": {
+          "description": "Result of the operation",
+          "type": "integer"
+        },
+        "second_factor": {
+          "description": "Second factor to operate",
+          "type": "integer"
+        }
+      },
+      "title": "Operations",
+      "type": "object"
+    }
+  },
+  "host": "contaitest.herokuapp.com:4000",
+  "info": {
+    "title": "Contaí Challenge"
+  },
+  "paths": {
+    "/api/operations/": {
+      "get": {
+        "description": "Create an operation in database",
+        "operationId": "ContaichallengeWeb.OperationsController.getall",
+        "parameters": [
+          {
+            "description": "Limit number of rows",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Offset the rows",
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get All Operations",
+            "schema": {
+              "$ref": "#/definitions/Operations"
+            }
+          }
+        },
+        "summary": "List all operations in database",
+        "tags": [
+          "Operations"
+        ]
+      }
+    },
+    "/api/operations/{operation}/{first_factor}/{second_factor}": {
+      "post": {
+        "description": "Create an operation in database",
+        "operationId": "ContaichallengeWeb.OperationsController.create",
+        "parameters": [
+          {
+            "description": "Operations type: sum, sub, mul, div",
+            "in": "path",
+            "name": "operation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "First factor to operate",
+            "in": "path",
+            "name": "first_factor",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Second factor to operate",
+            "in": "path",
+            "name": "second_factor",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "created": {
+            "description": "Operation Created",
+            "schema": {
+              "$ref": "#/definitions/Operation"
+            }
+          }
+        },
+        "summary": "In this path we can create an ",
+        "tags": [
+          "Operations"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0"
+}

@@ -11,7 +11,8 @@ use Mix.Config
 # before starting your production server.
 config :contaichallenge, ContaichallengeWeb.Endpoint,
   load_from_system_env: true,
-  url: [scheme: "https", host: "contaitest.herokuapp.com"],
+  url: [scheme: "http", host: "localhost", port: 4000],
+  # url: [scheme: "https", host: "contaitest.herokuapp.com", port: 443], # to work with heroku
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 

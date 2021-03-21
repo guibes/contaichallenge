@@ -12,7 +12,7 @@ config :contaichallenge,
 
 # Configures the endpoint
 config :contaichallenge, ContaichallengeWeb.Endpoint,
-  url: [host: "contaitest.herokuapp.com"],
+  url: [host: "localhost"], #put dns to work with heroku
   secret_key_base: "fKeS1UHRU8jShRpHiIpEx+uAQQGp6KyhtK8cKB0zlz+OEOJt+G4MPwXOBOETWJnm",
   render_errors: [view: ContaichallengeWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: Contaichallenge.PubSub,

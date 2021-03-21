@@ -15,12 +15,12 @@ services:
     depends_on:
       - db
     environment:
-      MIX_ENV: dev #change to prod if want run to production
+      MIX_ENV: prod #change to prod if want run to production
+      DATABASE_URL: postgres://postgres:postgres@db:5432/contaichallenge
+      SECRET_KEY_BASE: 82cIseOlE4lf/pXaQ/dBaEpx6XRFlMCmjSHIqb+tLg5h0HWZutdHeEDQr0lBXxil
     env_file:
       - .env
     ports:
       - '4000:4000' #change port to listen
-    volumes:
-      - .:/app
 volumes:
   pgdata:

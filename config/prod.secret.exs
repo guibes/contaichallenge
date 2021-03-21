@@ -12,7 +12,7 @@ database_url =
     """
 
 config :contaichallenge, Contaichallenge.Repo,
-  ssl: true,
+  #ssl: true, # enable to work with heroku
   url: database_url,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
@@ -35,7 +35,7 @@ config :contaichallenge, ContaichallengeWeb.Endpoint,
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :contaichallenge, ContaichallengeWeb.Endpoint, server: true
+config :contaichallenge, ContaichallengeWeb.Endpoint, server: true #comment this to work with heroku
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
