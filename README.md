@@ -3,10 +3,10 @@
 Challenge make to contaí selective process to new software engineer, the project consists in a API to make basic arithmetic calculations (+, -, /, *). The API was developed using ***Elixir*** language, the web framework is ***Phoenix***, the database connector is the ***Ecto*** with ***Postgres*** adapter, documented with ***Swagger*** and ***Docker*** for containers manager.
 
 ## Project Structure
+
 The structure of the project is simple, is described in the image below.
 
 ![Image: Simple Structure of Project.](https://i.ibb.co/7bms57c/Captura-de-Tela-2021-03-21-a-s-15-20-54.png)
-
 
 ## End Points
 
@@ -14,15 +14,13 @@ The project only have two endpoints, one for list all operations and another to 
 
 ### Create New Operation
 
-<p>
-<center>${urlbase}/api/operations/{operation}/{first_factor}/{second_factor}</center>
-</p>
+<p><center>${urlbase}/api/operations/{operation}/{first_factor}/{second_factor}</center></p>
 
 Where, ***operation*** is the operation type, can be, ***sum, sub, mul, div***, where sum is sum, sub is subtraction, mul is multiply, div is division. The ***first_factor*** is the first factor of operation, need be a integer value. The ***second_factor*** is the second factor of the operation.
 
 The result is a json like below
 
-```
+``` json
 {
   "message": "Operation created",
   "operation": {
@@ -37,15 +35,13 @@ The result is a json like below
 
 ### Get All Operations
 
-<p>
-<center>${urlbase}/api/operations/?limit={limit}&offset={offset}</center>
-</p>
+<p><center>${urlbase}/api/operations/?limit={limit}&offset={offset}</center></p>
 
 Where, ***limit*** is the number of lines of display and ***offset*** is the number of rows want skip.
 
 The result is a json array like below.
 
-```
+``` json
 {
   "message": "Operations listed",
   "operations": [
@@ -74,31 +70,30 @@ The project already have a ***Dockerfile*** and a ***docker-compose.yml*** file,
 
 This command will build our project and create an image.
 
-```
+``` bash
 docker-compose build
 ```
 
 This will startup our project.
 
-```
+``` bash
 docker-compose up -d
 ```
 
 This will run the migrations of the database.
 
-```
+``` bash
 docker-compose run web bin/contaichallenge eval "Contaichallenge.Release.migrate"
 ```
 
 If everything is ok, the project listen in http://localhost:4000, the ***Swagger*** docs can be found in the http://localhost:4000/api/swagger.
 
-
 To change the listen port ou url need follow the Elixir docs.
 
 ## Learn more
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+* Official website: https://www.phoenixframework.org/
+* Guides: https://hexdocs.pm/phoenix/overview.html
+* Docs: https://hexdocs.pm/phoenix
+* Forum: https://elixirforum.com/c/phoenix-forum
+* Source: https://github.com/phoenixframework/phoenix
