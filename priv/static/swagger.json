@@ -97,9 +97,9 @@
       "type": "object"
     }
   },
-  "host": "contaitest.herokuapp.com:4000",
+  "host": "localhost:4000",
   "info": {
-    "title": "Contaí Challenge"
+    "title": "Contaí Challenge API"
   },
   "paths": {
     "/api/operations/": {

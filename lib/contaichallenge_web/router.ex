@@ -12,11 +12,14 @@ defmodule ContaichallengeWeb.Router do
     get "/operations", OperationsController, :getall
   end
 
+  #swagger host and title configuration
+
   def swagger_info do
     %{
       info: %{
-        title: "Contaí Challenge"
-      }
+        title: "Contaí Challenge API"
+      },
+      host: "localhost:4000",
     }
   end
 

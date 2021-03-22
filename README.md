@@ -10,13 +10,13 @@ The structure of the project is simple, is described in the image below.
 
 ## End Points
 
-The project only have two endpoints, one for list all operations and another to create a new operation.
+The end points are listed below.
 
 ### Create New Operation
 
 <p><center>${urlbase}/api/operations/{operation}/{first_factor}/{second_factor}</center></p>
 
-Where, ***operation*** is the operation type, can be, ***sum, sub, mul, div***, where sum is sum, sub is subtraction, mul is multiply, div is division. The ***first_factor*** is the first factor of operation, need be a integer value. The ***second_factor*** is the second factor of the operation.
+Where, ***operation*** is the operation type, can be, ***sum, sub, mul, div***, where sum is sum, sub is subtraction, mul is multiply, div is division. The ***first_factor*** is the first factor of operation, need be a integer value. The ***second_factor*** is the second factor of the operation. (use post)
 
 The result is a json like below
 
@@ -37,7 +37,7 @@ The result is a json like below
 
 <p><center>${urlbase}/api/operations/?limit={limit}&offset={offset}</center></p>
 
-Where, ***limit*** is the number of lines of display and ***offset*** is the number of rows want skip.
+Where, ***limit*** is the number of lines of display and ***offset*** is the number of rows want skip. (use get)
 
 The result is a json array like below.
 

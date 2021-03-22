@@ -1,3 +1,4 @@
+# for dev
 # FROM bitwalker/alpine-elixir-phoenix:latest
 
 # WORKDIR /app
@@ -17,7 +18,7 @@
 
 # CMD mix phx.server
 
-
+# for production
 FROM elixir:1.9.0-alpine AS build
 
 # install build dependencies
