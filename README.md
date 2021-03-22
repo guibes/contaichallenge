@@ -78,16 +78,16 @@ This command will build our project and create an image.
 docker-compose build
 ```
 
-This will run the migrations of the database.
-
-```
-docker-compose run web bin/contaichallenge eval "Contaichallenge.Release.migrate"
-```
-
 This will startup our project.
 
 ```
 docker-compose up -d
+```
+
+This will run the migrations of the database.
+
+```
+docker-compose run web bin/contaichallenge eval "Contaichallenge.Release.migrate"
 ```
 
 If everything is ok, the project listen in http://localhost:4000, the ***Swagger*** docs can be found in the http://localhost:4000/api/swagger.
