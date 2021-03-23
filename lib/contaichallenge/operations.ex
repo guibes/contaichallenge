@@ -1,5 +1,4 @@
 defmodule Contaichallenge.Operations do
-
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -34,7 +33,7 @@ defmodule Contaichallenge.Operations do
     |> validate_required(@required_params)
   end
 
-  #Function to validate operation param, calculate the result and put into the changeset.
+  # Function to validate operation param, calculate the result and put into the changeset.
 
   defp generate_result(changeset) do
     first_factor = get_field(changeset, :first_factor)
@@ -42,11 +41,11 @@ defmodule Contaichallenge.Operations do
     operation = get_field(changeset, :operation)
 
     case operation do
-    "sum"  -> put_change(changeset, :result, first_factor+second_factor)
-    "sub" -> put_change(changeset, :result, first_factor-second_factor)
-    "mul" -> put_change(changeset, :result, first_factor*second_factor)
-    "div" -> put_change(changeset, :result, trunc(first_factor/second_factor))
-    _ -> add_error(changeset, :operation, "invalid operation")
+      "sum" -> put_change(changeset, :result, first_factor + second_factor)
+      "sub" -> put_change(changeset, :result, first_factor - second_factor)
+      "mul" -> put_change(changeset, :result, first_factor * second_factor)
+      "div" -> put_change(changeset, :result, trunc(first_factor / second_factor))
+      _ -> add_error(changeset, :operation, "invalid operation")
     end
   end
 end

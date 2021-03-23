@@ -31,8 +31,7 @@ defmodule ContaichallengeWeb.ErrorView do
     %{message: translate_erros(changeset)}
   end
 
-
-  #Translate erros is a function default to work with traverse_errors.
+  # Translate erros is a function default to work with traverse_errors.
 
   defp translate_erros(changeset) do
     traverse_errors(changeset, fn {msg, opts} ->

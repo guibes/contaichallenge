@@ -5,13 +5,13 @@ defmodule Contaichallenge.Operations.FindallTest do
 
   describe "call/1" do
     test "when exists operations, return all operations" do
-      params_op1 =  %{
+      params_op1 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "div"
       }
 
-      params_op2 =  %{
+      params_op2 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "mul"
@@ -25,30 +25,30 @@ defmodule Contaichallenge.Operations.FindallTest do
 
       assert [
                %Operations{
-                id: ^operation_id_1,
-                first_factor: 30,
-                second_factor: 30,
-                operation: "div",
-                result: 1
+                 id: ^operation_id_1,
+                 first_factor: 30,
+                 second_factor: 30,
+                 operation: "div",
+                 result: 1
                },
                %Operations{
-                id: ^operation_id_2,
-                first_factor: 30,
-                second_factor: 30,
-                operation: "mul",
-                result: 900
+                 id: ^operation_id_2,
+                 first_factor: 30,
+                 second_factor: 30,
+                 operation: "mul",
+                 result: 900
                }
              ] = operations
     end
 
     test "when exists operations, return limited by 1 operation" do
-      params_op1 =  %{
+      params_op1 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "div"
       }
 
-      params_op2 =  %{
+      params_op2 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "mul"
@@ -62,23 +62,23 @@ defmodule Contaichallenge.Operations.FindallTest do
 
       assert [
                %Operations{
-                id: ^operation_id_1,
-                first_factor: 30,
-                second_factor: 30,
-                operation: "div",
-                result: 1
+                 id: ^operation_id_1,
+                 first_factor: 30,
+                 second_factor: 30,
+                 operation: "div",
+                 result: 1
                }
              ] = operation
     end
 
     test "when exists operations, return skip 1 row operation" do
-      params_op1 =  %{
+      params_op1 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "div"
       }
 
-      params_op2 =  %{
+      params_op2 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "mul"
@@ -91,24 +91,24 @@ defmodule Contaichallenge.Operations.FindallTest do
       {:ok, operation} = Getall.call(query_params)
 
       assert [
-                %Operations{
-                  id: ^operation_id_2,
-                  first_factor: 30,
-                  second_factor: 30,
-                  operation: "mul",
-                  result: 900
-                }
+               %Operations{
+                 id: ^operation_id_2,
+                 first_factor: 30,
+                 second_factor: 30,
+                 operation: "mul",
+                 result: 900
+               }
              ] = operation
     end
 
     test "when exists operations, return limit 1 and skip 1 row operation" do
-      params_op1 =  %{
+      params_op1 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "div"
       }
 
-      params_op2 =  %{
+      params_op2 = %{
         first_factor: 30,
         second_factor: 30,
         operation: "mul"
@@ -121,20 +121,19 @@ defmodule Contaichallenge.Operations.FindallTest do
       {:ok, operation} = Getall.call(query_params)
 
       assert [
-                %Operations{
-                  id: ^operation_id_2,
-                  first_factor: 30,
-                  second_factor: 30,
-                  operation: "mul",
-                  result: 900
-                }
+               %Operations{
+                 id: ^operation_id_2,
+                 first_factor: 30,
+                 second_factor: 30,
+                 operation: "mul",
+                 result: 900
+               }
              ] = operation
     end
 
     test "when doesn't have operations, return 0 operations" do
       query_params = %{}
       {:ok, operations} = Getall.call(query_params)
-      IO.inspect(operations)
       assert [] = operations
     end
   end

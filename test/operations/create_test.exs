@@ -16,11 +16,11 @@ defmodule Contaichallenge.Operations.CreateTest do
       operation = Repo.get(Operations, operation_id)
 
       assert %Operations{
-              id: ^operation_id,
-              first_factor: 30,
-              second_factor: 30,
-              operation: "sum",
-              result: 60
+               id: ^operation_id,
+               first_factor: 30,
+               second_factor: 30,
+               operation: "sum",
+               result: 60
              } = operation
     end
 
@@ -36,11 +36,11 @@ defmodule Contaichallenge.Operations.CreateTest do
       operation = Repo.get(Operations, operation_id)
 
       assert %Operations{
-              id: ^operation_id,
-              first_factor: 30,
-              second_factor: 30,
-              operation: "mul",
-              result: 900
+               id: ^operation_id,
+               first_factor: 30,
+               second_factor: 30,
+               operation: "mul",
+               result: 900
              } = operation
     end
 
@@ -56,11 +56,11 @@ defmodule Contaichallenge.Operations.CreateTest do
       operation = Repo.get(Operations, operation_id)
 
       assert %Operations{
-              id: ^operation_id,
-              first_factor: 30,
-              second_factor: 30,
-              operation: "sub",
-              result: 0
+               id: ^operation_id,
+               first_factor: 30,
+               second_factor: 30,
+               operation: "sub",
+               result: 0
              } = operation
     end
 
@@ -76,11 +76,11 @@ defmodule Contaichallenge.Operations.CreateTest do
       operation = Repo.get(Operations, operation_id)
 
       assert %Operations{
-              id: ^operation_id,
-              first_factor: 30,
-              second_factor: 30,
-              operation: "div",
-              result: 1
+               id: ^operation_id,
+               first_factor: 30,
+               second_factor: 30,
+               operation: "div",
+               result: 1
              } = operation
     end
 
@@ -94,9 +94,9 @@ defmodule Contaichallenge.Operations.CreateTest do
       {:error, result} = Create.call(params)
 
       assert [
-        result: {"can't be blank", [validation: :required]},
-        operation: {"invalid operation", []}
-        ] = result.errors
+               result: {"can't be blank", [validation: :required]},
+               operation: {"invalid operation", []}
+             ] = result.errors
     end
   end
 end
